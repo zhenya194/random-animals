@@ -7,14 +7,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// API endpoint
+// DOGS API endpoint
 app.get("/api/cat", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://api.thecatapi.com/v1/images/search",
+      "https://api.thedogapi.com/v1/images/search",
       {
         headers: {
-          "x-api-key": process.env.THAT_CAT_API
+          "x-api-key": process.env.THAT_DOG_API
         },
         timeout: 5000
       }
@@ -30,11 +30,11 @@ app.get("/api/cat", async (req, res) => {
     throw new Error("Non-200 response");
 
   } catch (error) {
-    console.log("TheCatAPI failed → fallback to Cataas API");
+    console.log("TheDogAPI failed → fallback to Dogceo API");
 
     return res.json({
-      source: "Cataas",
-      url: "https://cataas.com/cat"
+      source: "Dogceo",
+      url: "https://dog.ceo/api/breeds/image/random"
     });
   }
 });
