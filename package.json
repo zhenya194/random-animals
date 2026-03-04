@@ -1,7 +1,7 @@
 {
   "name": "randomanimals",
   "version": "0.0.1",
-  "description": "Random animal(cat or dog) site",
+  "description": "Site that give you a random picture of cat or dog.",
   "license": "MIT",
   "author": "Zhenya",
   "type": "module",
