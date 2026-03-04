@@ -3,10 +3,6 @@
 .idea/
 .vs/
 
-# Secrets
-.env
-!.env.example
-
 # Other
 node_modules/
 .DS_Store
