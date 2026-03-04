@@ -1,32 +1,27 @@
 import express from "express";
-import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-// DOGS API endpoint
-app.get("/api/dog", async (req, res) => {
+app.use(express.static("client"));
+
+app.get("/cat", async (req, res) => {
   try {
-    const response = await axios.get("https://dog.ceo/api/breeds/image/random");
-    return res.json({
-      source: "DogCEO",
-      url: response.data.message
-    });
-  } catch (error) {
-    return res.json({
-      source: "Fallback",
-      url: "https://cataas.com/cat"
-    });
+    const response = await fetch("https://cataas.com/cat?json=true");
+    const data = await response.json();
+    res.json({ url: "https://cataas.com" + data.url });
+  } catch (err) {
+    res.status(500).json({ error: "Cannot fetch cat image" });
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Server is working...");
+app.get("/dog", async (req, res) => {
+  try {
+    const response = await fetch("https://dog.ceo/api/breeds/image/random");
+    const data = await response.json();
+    res.json({ url: data.message });
+  } catch (err) {
+    res.status(500).json({ error: "Cannot fetch dog image" });
+  }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
