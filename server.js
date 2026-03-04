@@ -23,6 +23,10 @@ app.get("/api/dog", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is working...");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
