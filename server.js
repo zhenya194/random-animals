@@ -21,9 +21,9 @@ app.get("/dogs", async (req, res) => {
 
 app.get("/rabbits", async (req, res) => {
   try {
-    const response = await fetch("https://rabbit-api-two.vercel.app/api/random");
-    const data = await response.json();
-    res.json({ url: data.message });
+    const response_rabbit = await fetch("https://rabbit-api-two.vercel.app/api/random");
+    const data_rabbit = await response_rabbit.json();
+    res.json({ url: data_rabbit.url });
   } catch (erro) {
     console.log("Cannot fetch rabbit image")
     res.status(500).json({ error: "Cannot fetch rabbit image" });

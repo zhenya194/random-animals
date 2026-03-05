@@ -4,7 +4,7 @@ const rabbit = document.getElementById("rabbit");
 
 const catButton = document.getElementById("catButton");
 const dogButton = document.getElementById("dogButton");
-const rabbitButton = document.getElementById("rabbit");
+const rabbitButton = document.getElementById("rabbitButton");
 
 if (catButton) {
     catButton.onclick = () => {
@@ -22,8 +22,8 @@ if (dogButton) {
 
 if (rabbitButton) {
     rabbitButton.onclick = async () => {
-        const res = await fetch("/rabbits");
-        const data = await res.json();
-        rabbit.src = data.url;
+        const res_rabbit = await fetch("/rabbits");
+        const data_rabbit = await res_rabbit.json();
+        rabbit.src = data_rabbit.url;
     };
 }
