@@ -14,6 +14,7 @@ app.get("/dogs", async (req, res) => {
     const data = await response.json();
     res.json({ url: data.message });
   } catch (err) {
+    console.log("Cannot fetch dog image")
     res.status(500).json({ error: "Cannot fetch dog image" });
   }
 });
