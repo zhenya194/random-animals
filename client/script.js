@@ -1,9 +1,10 @@
-const dog = document.getElementById("dog");
 const cat = document.getElementById("cat");
+const dog = document.getElementById("dog");
 const rabbit = document.getElementById("rabbit");
 
-const dogButton = document.getElementById("dogButton");
 const catButton = document.getElementById("catButton");
+const dogButton = document.getElementById("dogButton");
+const rabbitButton = document.getElementById("rabbit");
 
 if (catButton) {
     catButton.onclick = () => {
